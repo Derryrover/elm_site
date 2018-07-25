@@ -1,19 +1,20 @@
 module Main exposing (..)
 
-import Html exposing (Html, text, div, h1, img)
-import Html.Attributes exposing (src)
+import Html exposing (Html, header, footer, text, div, h1, img)
+import Html.Attributes exposing (src, style)
+import MainCss exposing (centeredLayout, takeUpAllVerticalSpaceLeft)
 
 
 ---- MODEL ----
 
 
 type alias Model =
-    {}
+  {}
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( {}, Cmd.none )
+  ( {}, Cmd.none )
 
 
 
@@ -21,12 +22,12 @@ init =
 
 
 type Msg
-    = NoOp
+  = NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
-    ( model, Cmd.none )
+  ( model, Cmd.none )
 
 
 
@@ -35,10 +36,19 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ img [ src "/logo.svg" ] []
-        , h1 [] [ text "Your Elm App is working!" ]
-        ]
+  div [style centeredLayout]
+    [ header [] 
+      [ h1 [] 
+        [ text "header of website"]
+      ]
+    , div [style takeUpAllVerticalSpaceLeft] 
+      [ img [ src "/logo.svg" ] []
+      , h1 [] [ text "Your Elm App is working!" ]
+      ]
+    , footer [] 
+      [ text "footer of website"  
+      ]
+    ]
 
 
 
@@ -47,9 +57,9 @@ view model =
 
 main : Program Never Model Msg
 main =
-    Html.program
-        { view = view
-        , init = init
-        , update = update
-        , subscriptions = always Sub.none
-        }
+  Html.program
+    { view = view
+    , init = init
+    , update = update
+    , subscriptions = always Sub.none
+    }
