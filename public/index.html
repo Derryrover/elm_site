@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html style="height:100%"lang="en">
+<!-- <html lang="en"> -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,11 +13,23 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <title>Elm App</title>
+    <style>
+        #mapid { height: 780px; }
+    </style>
+    <!-- added here and not in LeafletImport.js because of issue: https://github.com/PaulLeCam/react-leaflet/issues/255 -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin=""
+    />
 </head>
+<!-- <body> -->
 <body style="height:100%">
     <noscript>
         You need to enable JavaScript to run this app.
     </noscript>
+    page content
+    <div id="mapid"></div>
     <div style="height:100%" id="root"></div>
+
 </body>
 </html>
